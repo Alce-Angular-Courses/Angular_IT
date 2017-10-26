@@ -1,25 +1,44 @@
-<form (ngSubmit)="enviar()">
+<form (ngSubmit)="enviar()" #myform = "ngForm">
     <h2>Datos Personales</h2>
     <p>
         <!--Etiqueta / Campo "Mombre"-->						
         <label for="firstname">Nombre</label>
-        <input type="text" id="firstname" name="firstname"
-          [(ngModel)]="user.firstName">
+        <input type="text" id="firstname" name="firstname" #firstnameState="ngModel"
+          [(ngModel)]="user.firstName" minlength="3" required>
       </p>
+
+      <div [hidden]="firstnameState.valid || firstnameState.untouched ">
+          <div class="error-message" 
+            [hidden]="!firstnameState.errors?.required">
+            El nombre es obligatorio</div>
+          <div class="error-message" 
+            [hidden] = "!firstnameState.errors?.minlength">
+            El nombre debe tener un mínimo de 2 caracteres
+          </div>
+        </div>
             
       <p>
         <!--Etiqueta / Campo "Apellidos"-->
         <label for="lastname">Apellidos</label>
-        <input type="text" id="lastname" name="lastname"
-          [(ngModel)]="user.lastName">
+        <input type="text" id="lastname" name="lastname" #lastnameState="ngModel"
+          [(ngModel)]="user.lastName" required>
       </p>
+      <div class="error-message"  
+        [hidden]="lastnameState.valid || lastnameState.untouched">
+        El apellido es obligatorio
+      </div>
+  
     
       <p>
         <!--Etiqueta / Campo "Telefono"-->
         <label for="phoneNumber">Teléfono</label>
-        <input type="text" id="phoneNumber" name="phoneNumber" 
-          [(ngModel)]="user.phoneNumber"> 
-      </p>						
+        <input type="text" id="phoneNumber" name="phoneNumber" #phoneState="ngModel"
+          [(ngModel)]="user.phoneNumber" required pattern="^\d{9}$">  
+      </p>	
+      <div class="error-message"  
+      [hidden]="phoneState.valid || phoneState.untouched">
+      El telefono es obligatorio y debe tener 9 dígitos 
+    </div>					
     
     <!--Radio-Buttos-->
     <h2>Selecciona una Impresora</h2>
@@ -70,9 +89,11 @@
       <!--Botones "Enviar" y "Borrar"-->
       <p>
         <label for=""></label>
-        <input type="submit" id="enviar" name="enviar" value="Enviar">
+        <input type="submit" id="enviar" name="enviar" value="Enviar"
+        [disabled] ="!myform.valid">
         <label for=""></label>			
         <input type="button" id="borrar" name="borrar" 
-        value="Borrar" (click)="borrar()">
+        value="Borrar" (click)="borrar()"
+        [disabled]="myform.pristine">
       </p>
 </form>
