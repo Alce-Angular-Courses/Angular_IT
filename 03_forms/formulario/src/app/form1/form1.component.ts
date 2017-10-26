@@ -1,5 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
+interface Usuario {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+}
+
+interface Departamento {
+  nombre: string;
+  codigo: string | number;
+}
+
 @Component({
   selector: 'app-form1',
   templateUrl: './form1.component.html',
@@ -7,12 +18,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Form1Component implements OnInit {
 
-  sNombre: string;
-  sApellidos: string;
+  user: Usuario;
+  impresoraSeleccionada: string;
+  aImpresoras: Array<string>;
+  isClaro: boolean;
+  isColor: boolean;
+  departamentoSeleccionado: Departamento;
+  aDepartamentos: Array<Departamento>;
 
   constructor() { }
 
   ngOnInit() {
+    this.user = { firstName: '', lastName: '',  phoneNumber: ''};
+    this.aImpresoras = ['HP', 'Cannon', 'Brother', 'Lexmark'];
+    this.aDepartamentos = [
+       {nombre: 'Marketing', codigo: 22},
+       {nombre: 'Ventas', codigo: 23},
+       {nombre: 'Direccion', codigo: '26t'},
+       {nombre: 'Sistemas', codigo: 28}
+    ]
   }
 
+  avisarPrint() {
+    console.log(this.isColor);
+  }
+
+  avisarDepartamento () {
+    console.log(this.departamentoSeleccionado);
+  }
+
+  enviar () {
+    console.log('Enviado');
+  }
+
+  borrar () {
+    console.log('Borrado');
+  }
 }
