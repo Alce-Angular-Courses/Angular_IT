@@ -1,3 +1,4 @@
+import { PipesComponent } from './pipes/pipes.component';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,12 +14,14 @@ import { PensamientosComponent } from './pensamientos/pensamientos.component';
   declarations: [
     BindingComponent,
     LocalComponent,
-    PensamientosComponent
+    PensamientosComponent,
+    PipesComponent
   ],
   exports: [
     BindingComponent,
     LocalComponent,
-    PensamientosComponent
+    PensamientosComponent,
+    PipesComponent
   ]
 })
 export class SamplesModule { }
