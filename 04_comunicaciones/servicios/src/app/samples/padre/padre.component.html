@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>Servicio de libros</h2>
+    <input type="text" placeholder="Escribe una clave" [(ngModel)]="sClave">
+    <button (click)="btnBuscar()">Buscar</button>
+    <div *ngIf="aLibros.length">
+      <h3>Resultado de la búsqueda</h3>
+      <ul>
+        <li *ngFor="let libro of aLibros">{{libro}}</li>
+      </ul>
+    </div>
+
+  </div>
+  
