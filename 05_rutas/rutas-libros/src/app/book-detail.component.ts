@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Book, BookService } from './book.service';
 
@@ -15,13 +15,18 @@ import { Book, BookService } from './book.service';
     <button (click)="gotoBooks()">Back</button>
   </p>`
 })
-export class BookDetailComponent {
+export class BookDetailComponent implements OnInit {
 
   book: Book;
 
-  constructor(private router: Router, activatedRoute: ActivatedRoute, service: BookService) {
-    let id = activatedRoute.snapshot.params['id'];
-    this.book = service.getBook(id);
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private bookService: BookService) {}
+
+  ngOnInit () {
+    const id = this.activatedRoute.snapshot.params['id'];
+    this.book = this.bookService.getBook(id);
   }
 
   gotoBooks() {
