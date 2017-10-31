@@ -2,6 +2,7 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PadreComponent } from './padre/padre.component';
+import { GoogleComponent } from './google/google.component';
 
 
 @NgModule({
@@ -10,8 +11,10 @@ import { PadreComponent } from './padre/padre.component';
     FormsModule
   ],
   declarations: [
-    PadreComponent],
+    PadreComponent,
+    GoogleComponent],
   exports: [
-    PadreComponent]
+    PadreComponent,
+    GoogleComponent]
 })
 export class SamplesModule { }

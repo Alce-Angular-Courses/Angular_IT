@@ -1,6 +1,7 @@
 // Elementos de Angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http'; 
 import { FormsModule } from '@angular/forms';
 // Modulos de la aplicación
 import { SamplesModule } from './samples/samples.module';
@@ -15,6 +16,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     FormsModule,
     SamplesModule,
     SharedModule,
