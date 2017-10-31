@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PadreComponent } from './padre/padre.component';
 import { GoogleComponent } from './google/google.component';
+import { ServicioComponent } from './servicio/servicio.component';
 
 
 @NgModule({
@@ -12,9 +13,11 @@ import { GoogleComponent } from './google/google.component';
   ],
   declarations: [
     PadreComponent,
-    GoogleComponent],
+    GoogleComponent,
+    ServicioComponent],
   exports: [
     PadreComponent,
-    GoogleComponent]
+    GoogleComponent,
+    ServicioComponent]
 })
 export class SamplesModule { }

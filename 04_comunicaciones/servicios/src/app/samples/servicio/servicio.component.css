@@ -1,0 +1,7 @@
+div.container {
+    width: 50%;
+    margin: 1em auto;
+    background-color: papayawhip;
+    border: 1px solid maroon;
+    padding: 1em 3em
+}
